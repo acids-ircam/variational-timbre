@@ -1,7 +1,8 @@
+<script src="http://vjs.zencdn.net/4.0/video.js"></script>
+
 # Generative variational timbre spaces
 
 This supporting describes the additional experiments and materials for the paper "Generative timbre spaces by perceptually regularizing variational auto-encoders".
-
 
 ## Supplementary figures
 
@@ -9,7 +10,11 @@ This supporting describes the additional experiments and materials for the paper
 
 ## Descriptor space animations
 
-<video src="../animations/flatness.mp4 width="320" height="200" controls preload></video>
+<video id="pelican-installation" class="video-js vjs-default-skin" controls
+preload="auto" width="683" height="384" poster="/static/screencasts/pelican-installation.png"
+data-setup="{}">
+<source src="/static/screencasts/pelican-installation.mp4" type='video/mp4'>
+</video>
 
 [Descriptor spaces traversal set](spaces)
 

@@ -24,7 +24,7 @@ preload="auto" width="683" height="384" data-setup="{}">
 
 ## Synthesis paths sounds
 
-<audio> 
+<audio controls preload="auto" data-setup="{}"> 
 <source src="audio/Violoncello_Alto-Sax.mp3" type='audio/mp3'>
 </audio>
 

@@ -12,7 +12,7 @@ This supporting describes the additional experiments and materials for the paper
 
 ## Descriptor space animations
 
-<video id="pelican-installation" class="video-js vjs-default-skin" controls
+<video id="flatness" class="video-js vjs-default-skin" controls
 preload="auto" width="683" height="384" data-setup="{}">
 <source src="animations/flatness.mp4" type='video/mp4'>
 </video>
@@ -24,7 +24,9 @@ preload="auto" width="683" height="384" data-setup="{}">
 
 ## Synthesis paths sounds
 
-<audio src="audio/Violoncello_Alto-Sax.mp3"></audio>
+<audio> 
+<source src="audio/Violoncello_Alto-Sax.mp3" type='audio/mp3'>
+</audio>
 
 [All pairwise sounds for synthesis paths](path-synthesis)
 

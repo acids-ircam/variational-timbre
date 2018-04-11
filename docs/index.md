@@ -16,7 +16,7 @@ preload="auto" width="683" height="384" data-setup="{}">
 </video>
 
 
-//poster="/static/screencasts/pelican-installation.png"
+<!-- poster="/static/screencasts/pelican-installation.png" -->
 
 [Descriptor spaces traversal set](spaces)
 

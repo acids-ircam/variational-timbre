@@ -20,7 +20,7 @@ data-setup="{}">
 
 ## Synthesis paths sounds
 
-<audio ref='themeSong' src="audio/Violoncello_Alto-Sax.wav"></audio>
+<audio src="audio/Violoncello_Alto-Sax.mp3"></audio>
 
 [All pairwise sounds for synthesis paths](path-synthesis)
 

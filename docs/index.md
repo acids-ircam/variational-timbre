@@ -13,7 +13,7 @@ This supporting describes the additional experiments and materials for the paper
 <video id="pelican-installation" class="video-js vjs-default-skin" controls
 preload="auto" width="683" height="384" poster="/static/screencasts/pelican-installation.png"
 data-setup="{}">
-<source src="../animations/flatness.mp4" type='video/mp4'>
+<source src="animations/flatness.mp4" type='video/mp4'>
 </video>
 
 [Descriptor spaces traversal set](spaces)

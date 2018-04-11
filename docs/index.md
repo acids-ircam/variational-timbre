@@ -9,6 +9,8 @@ This supporting describes the additional experiments and materials for the paper
 
 ## Descriptor space animations
 
+<video src="../animations/flatness.mp4 width="320" height="200" controls preload></video>
+
 [Descriptor spaces traversal set](spaces)
 
 ## Synthesis paths sounds

@@ -1,4 +1,6 @@
+<!--
 <script src="http://vjs.zencdn.net/4.0/video.js"></script>
+-->
 
 # Generative variational timbre spaces
 

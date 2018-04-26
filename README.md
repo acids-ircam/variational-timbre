@@ -1,10 +1,10 @@
-# Perceptually-regularized variational timbre spaces
+# Generative variational timbre spaces
 
-This repository describes the additional material and experiments around "Bridging audio analysis, perception and synthesis with perceptually-regularized variational timbre spaces" submitted at ISMIR 2018.
+This repository describes the additional material and experiments around "Generative timbre spaces with variational audio synthesis" submitted at DaFX 2018.
 
-For a better viewing experience of these additional results, please **visit the [corresponding Github pages website](https://anonymous124.github.io/ismir2018/ "ISMIR 2018 - Latent spaces")**
+For a better viewing experience of these additional results, please **visit the [corresponding Github pages website](https://acids-ircam.github.io/variational-timbre/ "DaFX 2018 - Latent spaces")**
 
-This [supporting page](https://anonymous124.github.io/ismir2018/ "ISMIR 2018 - Latent spaces") directly embeds the exposed elements
+This [supporting page](https://acids-ircam.github.io/variational-timbre/ "DaFX 2018 - Latent spaces") directly embeds the exposed elements
   * Supplementary figures
   * Animations of descriptor space traversal (topology)
   * Audio examples of synthesized paths in the space
@@ -15,7 +15,7 @@ Otherwise, you can directly parse through the different sub-folders of the main 
 
 ## Code
 
-**The full code will only be released upon acceptance of the paper at the ISMIR 2018 conference.**
+**The full code will only be released upon acceptance of the paper at the DaFX 2018 conference.**
 
 ### Dependencies
 
@@ -38,7 +38,7 @@ The code can also work on GPUs, in which case you need to add the following depe
 
 ### Usage
 
-The code is mostly divided into two scripts `ismir2018learn.py` and `ismir2018figures.py`. The first script `ismir2018learn.py` allows to train a model from scratch as described in the paper. This model can be regularized or not on the timbre space. The second script `ismir2018figures.py` allows to generate the figures of the papers, and also all the supporting additional materials visible on the [supporting page](https://anonymous124.github.io/ismir2018/ "ISMIR 2018 - Latent spaces") of this repository.
+The code is mostly divided into two scripts `dafx2018learn.py` and `dafx2018figures.py`. The first script `dafx2018learn.py` allows to train a model from scratch as described in the paper. This model can be regularized or not on the timbre space. The second script `dafx2018figures.py` allows to generate the figures of the papers, and also all the supporting additional materials visible on the [supporting page](https://acids-ircam.github.io/variational-timbre/ "DaFX 2018 - Latent spaces") of this repository.
 
 In both cases, the scripts can be used with the following options
 
@@ -81,11 +81,11 @@ Properties of the learning
 1. Running the unregularized model to learn a VAE space of musical instruments
 
 ```
-python3 ismir2018learn.py --regularization none --beta 2 --warmup 100 --units 2000
+python3 dafx2018learn.py --regularization none --beta 2 --warmup 100 --units 2000
 ```
 
 2. Learning a L2-regularized VAE space of musical instruments based on timbre distances
 
 ```
-python3 ismir2018learn.py --regularization l2 --beta 2 --warmup 100 --units 2000 --alpha 1 --normalize 1
+python3 dafx2018learn.py --regularization l2 --beta 2 --warmup 100 --units 2000 --alpha 1 --normalize 1
 ```

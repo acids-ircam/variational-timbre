@@ -84,8 +84,8 @@ Properties of the learning
 python3 dafx2018learn.py --regularization none --beta 2 --warmup 100 --units 2000
 ```
 
-2. Learning a L2-regularized VAE space of musical instruments based on timbre distances
+2. Learning a Student-t regularized VAE space of musical instruments based on timbre distances
 
 ```
-python3 dafx2018learn.py --regularization l2 --beta 2 --warmup 100 --units 2000 --alpha 1 --normalize 1
+python3 dafx2018learn.py --regularization student --beta 2 --warmup 100 --units 2000 --alpha 1 --normalize 1
 ```

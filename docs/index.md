@@ -13,11 +13,12 @@
       } 
 </script> 
 
-# Perceptually-regularized variational timbre spaces
+# Generative variational timbre spaces
 
-This repository describes the additional material and experiments around the paper ["Bridging audio analysis, perception and synthesis with perceptually-regularized variational timbre spaces"](bridging-audio-analysis-ismir2018.pdf) submitted at the 2018 ISMIR Conference.
+This repository describes the additional material and experiments around the paper ["Generative timbre spaces with variational audio synthesis"](dafx18generative.pdf) submitted at the 2018 DaFX Conference.
 
-Generative models aim to understand the properties of data, through the construction of latent spaces that allow classification and generation. However, as the learning is unsupervised, the latent dimensions are not related to per- ceptual properties. In parallel, music perception aimed to understand timbre based on human dissimilarity ratings. These lead to timbre spaces which exhibit perceptual similarities between sounds. However, they do not generalize to novel examples and are not continuous, preventing audio synthesis. Here, we show that Variational Auto-Encoders (VAE) can bridge these lines of research and alleviate their weaknesses by regularizing the latent spaces to match the perceptual distances collected from timbre studies. Hence, we propose three types of regularization and show that they all lead to spaces that are simultaneously coherent with signal properties and perceptual dissimilarity ratings. We show that these spaces can be used directly for efficient au- dio classification. We study how traditional descriptors are organized along the latent dimensions and show that even though descriptors behave in a non-linear way across the space, they still follow a locally smooth evolution. We also show that this space generalizes to novel sample. Therefore, it could be used to predict perceptual similarities of novel instruments. Finally, we exhibit the generative capabilities of our spaces, that can directly synthesize sounds with continuous evolution of timbre perception.
+Timbre spaces have been used in music perception to study the perceptual relationships between instruments based on dissimilarity ratings. However, these spaces do not generalize, need to be reconstructed for each novel example and are not continuous, preventing audio synthesis. In parallel, generative models have aimed to provide methods for synthesizing novel timbres. However, these systems do not provide an explicit control structure, nor do they provide an understanding of their inner workings and are usually not related to any perceptually relevant information.
+Here, we show that Variational Auto-Encoders (VAE) can alleviate all of these limitations by constructing _variational generative timbre spaces_. To do so, we adapt VAEs to create a generative latent space, while using perceptual ratings from timbre studies to regularize the organization of this space. The resulting space allows to analyze novel instruments, while being able to synthesize audio from any point of this space. We introduce a specific regularization allowing to directly enforce given perceptual constraints or simi- larity ratings onto these spaces. We compare the resulting space to existing timbre spaces and show that they provide almost similar distance relationships. We evaluate several spectral transforms as input and show that the Non-Stationary Gabor Transform (NSGT) provides the highest correlation to timbre spaces and the best quality of synthesis. Furthermore, we show that these spaces can generalize to novel instruments and can generate any path between in- struments to understand their timbre relationships. As these spaces are continuous, we study how the traditional acoustic descriptors behave along the latent dimensions. We show that even though descriptors have an overall non-linear topology, they follow a locally smooth evolution. Based on this, we introduce a method for _descriptor-based synthesis_ and show that we can control the descriptors of an instrument while keeping its timbre structure.
 
 <p align="center">
 <img src="figures/Variational_Timbre.png" height="75%" width="75%">
@@ -29,7 +30,7 @@ Here, we directly embed the exposed elements
   * [Detailed analysis of perceptual inference abilities](#perceptual-inference-abilities)
   * [Additional data and information](#additional-information)
   
-Otherwise, you can directly download and parse through the different sub-folders of the [docs/](https://github.com/anonymous124/ismir2018/tree/master/docs) folder on GitHub to view all of these informations.
+Otherwise, you can directly download and parse through the different sub-folders of the [docs/](https://github.com/acids-ircam/variational-timbre/tree/master/docs) folder on GitHub to view all of these informations.
 
 ## Descriptor space animations
 
@@ -37,7 +38,7 @@ As detailed in the paper, the space obtained through variational learning are co
 
 ### Model topology comparison
 
-We compare the topology of different descriptors along the X axis between the vanilla (top) and l2-regularized (bottom) VAE learned on orchestral instruments.
+We compare the topology of different descriptors along the X axis between the vanilla (top) and student-regularized (bottom) VAE learned on orchestral instruments.
 
 <center>
 
@@ -105,7 +106,7 @@ We compare the topology of different descriptors along the X axis between the va
 
 ### Complete model topology
 
-Here we provide the complete topology of a l2-regularized latent space, by evaluating the _centroid_, _flatness_, _bandwidth_, _loudness_ and _rolloff_ across the X (top), Y (middle) and Z (bottom) axes of the PCA-transformed latent space
+Here we provide the complete topology of a student-regularized latent space, by evaluating the _centroid_, _flatness_, _bandwidth_, _loudness_ and _rolloff_ across the X (top), Y (middle) and Z (bottom) axes of the PCA-transformed latent space
 
 <center>
 
@@ -391,4 +392,4 @@ The combined set of instruments from past studies is plotted as a set of co-occu
 
 ## Code
 
-**The full code will only be released upon acceptance of the paper at the ISMIR 2018 conference** and will be available on the corresponding [GitHub repository](https://github.com/anonymous124/ismir2018)
+**The full code will only be released upon acceptance of the paper at the DaFX 2018 conference** and will be available on the corresponding [GitHub repository](https://github.com/acids-ircam/variational-timbre)

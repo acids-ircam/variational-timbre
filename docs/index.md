@@ -202,7 +202,19 @@ $$\mathbf{z}^{t} = \frac{sin((1 - t) * \omega)}{sin(\omega * \mathbf{z}^{0}_{i})
 **Expressive**
 $$\mathbf{z}^{t} = \frac{sin((1 - t) * \omega)}{sin(\omega * (\mathbf{z}^{0}_{i} + \delta(\mathbf{z}^{t}_{i}))} + \frac{sin(t * \omega)}{sin(\omega * (\mathbf{z}^{0}_{j} + \delta(\mathbf{z}^{t}_{i}))}$$
 
-To better understand how these different interpolation work, please refer to the video animations available after the audio examples of the next section
+To better understand how these different interpolation work, here are two video animations that shows the different paths (spherical or expressive) between the Violin and the Clarinet in latent space, and the corresponding distributions that are being generated.
+
+**Spherical**
+
+<video id="flatness" class="video-js vjs-default-skin" controls preload="auto" width="600" height="288" data-setup="{}">
+<source src="animations/paths/note_spherical_Violin_Clarinet-Bb.mp4" type='video/mp4'>
+</video>
+
+**Expressive**
+
+<video id="flatness" class="video-js vjs-default-skin" controls preload="auto" width="600" height="288" data-setup="{}">
+<source src="animations/paths/note_expressive_Violin_Clarinet-Bb.mp4" type='video/mp4'>
+</video>
 
 #### Spherical or expressive interpolations
 

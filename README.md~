@@ -107,5 +107,3 @@ python3 dafx2018learn.py --regularization l2 --beta 2 --latent_dims 16 --conditi
 ```
 python3 dafx2018figures.py --models trained_models/acidsInstruments-pitch-16d_full-l2_pitch-solo_3999_cpu/acidsInstruments-pitch-16d_full-l2_pitch-solo_3999_cpu.t7
 ```
-
-*Important Note* : the nsgt3 package is a quick python3 adaptation of the Thomas Grill's awesome work at the address : https://github.com/grrrr/nsgt

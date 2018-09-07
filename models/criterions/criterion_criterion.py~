@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Jul  6 20:26:17 2018
+
+@author: chemla
+"""
+
+class Criterion(object):
+    def __init__(self, options={}):
+        super(Criterion, self).__init__()
+        self.loss_history = {}
+        
+    def loss(self, *args, options={}, **kwargs):
+        return 0.
+    
+    def write(self, losses, name):
+        pass

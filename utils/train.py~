@@ -1,0 +1,81 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 28 17:54:24 2018
+
+@author: chemla
+"""
+import matplotlib.pyplot as plt
+import torch, os, pdb
+from torch.utils.data import DataLoader
+from visualize import vae_io as io
+import torchvision
+import numpy as np
+
+
+def update_losses(losses_dict, new_losses):
+    for k, v in new_losses.items():
+        if not k in losses_dict.keys():
+            losses_dict[k] = []
+        losses_dict[k].append(new_losses[k])
+    return losses_dict
+
+
+def train_model(dataset, model, loss, options={}):  
+    # Global training parameters
+    name = options.get('name', 'model')
+    epochs = options.get('epochs', 10000)
+    save_epochs = options.get('save_epochs', 2000)
+    plot_epochs = options.get('plot_epochs', 100)
+    batch_size = options.get('batch_size', 64)
+    image_export = options.get('image_export', False)
+    nb_reconstructions = options.get('nb_reconstructions', 3)
+    
+    # Plotting directories
+    results_folder = options.get('resultsFolder', 'saves')
+    figures_folder = options.get('figuresFolder', results_folder+'/figures')
+    if not os.path.isdir(results_folder):
+        os.makedirs(results_folder)
+    if not os.path.isdir(figures_folder):
+        os.makedirs(figures_folder)
+        
+    # Start training
+    epoch = -1 
+    reconstruction_ids = np.random.permutation(len(dataset))[:nb_reconstructions**2]
+        
+    while epoch < epochs:
+        epoch += 1
+        loader = DataLoader(dataset, batch_size=batch_size)
+        
+        # train phase
+        batch = 0; current_loss = 0;
+        for x in loader:
+            x = x.to(model.device)
+            out = model.forward(x)
+            batch_loss, losses = loss.step(model, x, out, epoch=epoch, write='train')
+            model.step(batch_loss)
+            print("epoch %d / batch %d / losses : %s "%(epoch, batch, [l.item() for l in losses]))
+            current_loss += batch_loss
+            batch += 1
+        current_loss /= batch
+        
+        ## test_phase
+        with torch.no_grad():
+            test_data = torch.from_numpy(dataset['test'][:]).to(model.device)
+            out = model.forward(test_data)
+            test_loss, losses = loss.loss(model, test_data, out, write='test')
+            model.schedule(test_loss)
+        
+#        plt.ioff()
+        if epoch%save_epochs==0 or epoch == (epochs-1):
+            print('-- saving model at %s'%'results/%s/%s_%d.t7'%(results_folder, name, epoch))
+            model.save('%s/%s_%d.t7'%(results_folder, name, epoch), loss=loss, epoch=epoch, partitions=dataset.partitions)
+#        if epoch%plot_epochs == 0:
+#            fig, _ = io.plot_reconstructions(model, dataset)
+#            fig.savefig(figures_folder+'/reconstructions_%d.svg'%epoch, format='svg')
+#        plt.ion()
+        
+        if image_export:
+            images = dataset[reconstruction_ids]
+            out = model.pinput[0]['dist'](*model.forward(images)['x_params'][0]).mean
+            torchvision.utils.save_image(out.reshape(out.size(0), 1, 28, 28), figures_folder+'grid_%d.png'%epoch, nrow=nb_reconstructions)

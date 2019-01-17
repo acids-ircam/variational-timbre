@@ -15,8 +15,6 @@ Otherwise, you can directly parse through the different sub-folders of the main 
 
 ## Code
 
-**The full code will only be released upon acceptance of the paper at the DaFX 2018 conference.**
-
 ### Dependencies
 
 The code has been developed on Python3.5, it should work with other versions of Python, but this have not been tested. We rely on several libraries for different aspects of the code. The complete list is `numpy`, `scipy`, `pytorch`, `matplotlib`, `scikit-learn`, `nsgt`, `scikit-image` and `pyro`

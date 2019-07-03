@@ -13,6 +13,10 @@ This [supporting page](https://acids-ircam.github.io/variational-timbre/ "DaFX 2
   
 Otherwise, you can directly parse through the different sub-folders of the main `docs/` folder.
 
+### Dataset
+
+The preprocessed and compiled dataset used in the original paper can be downloaded [right here](https://nubo.ircam.fr/index.php/s/SYf9KiYfBtZXFxL)
+
 ## Code
 
 ### Dependencies

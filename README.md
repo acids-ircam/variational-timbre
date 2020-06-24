@@ -15,7 +15,7 @@ Otherwise, you can directly parse through the different sub-folders of the main 
 
 ### Dataset
 
-The preprocessed and compiled dataset used in the original paper can be downloaded [right here](https://nubo.ircam.fr/index.php/s/SYf9KiYfBtZXFxL)
+The preprocessed and compiled dataset used in the original paper can be downloaded [right here](https://nubo.ircam.fr/index.php/s/KEKBsbfTdyCQNQC)
 
 ## Code
 
@@ -34,6 +34,7 @@ pip3 install scikit-learn
 pip3 install scikit-image
 pip3 install pyro
 pip3 install nsgt
+pip3 install dill
 ```
 
 The code can also work on GPUs, in which case you need to add the following dependencies (based on the premises that you have a working GPU with CUDA installed)
@@ -45,6 +46,7 @@ The code is mostly divided into two scripts `dafx2018learn.py` and `dafx2018figu
 #### dafx2018learn.py arguments
 ```
 Data-related arguments
+  --data             Path of the dataset.data pickle 
   --filter	     Filters the data above a given octave (default : 5)
   --frames           Indexes of fromes taken in each audio file (default : from 10 to 25) 
 Model-related arguments

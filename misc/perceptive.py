@@ -10,7 +10,7 @@ equivalenceInstruments = ['Clarinet-Bb', 'Alto-Sax', 'Trumpet-C', 'Violoncello',
 
 def get_perceptual_centroids(dataset, mds_dims, timbre_path='timnre.npy', covariance=True, timbreNormalize=True, timbreProcessing=True):
     if (timbreProcessing == True or (not os.path.isfile('timbre_' + str(mds_dims) + '.npy'))):
-        fullTimbreData = np.load(timbre_path).item()
+        fullTimbreData = np.load(timbre_path, allow_pickle=True).item()
         # Names of the pre-extracted set of instruments (all with pairwise rates)
         selectedInstruments = fullTimbreData['instruments']
         # Full sets of ratings (i, j) = all ratings for instru. i vs. instru. j

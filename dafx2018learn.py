@@ -27,6 +27,7 @@ CURRENT_LOCATION = os.path.dirname(os.path.abspath(__file__))
 #%% Parse arguments
 
 parser = argparse.ArgumentParser()
+parser.add_argument('--data',           type=str,   default="dataset.data",                                         help="location of dataset.data file")
 parser.add_argument('--cuda',           type=int,   default=-1,                                                     help='cuda ID device (leave -1 for cpu)')
 parser.add_argument('--regularization', type=str,   default='l2', choices=['l2','prior','student', 'gaussian'],     help='perceptive regularization method')
 parser.add_argument('--conditioning',   type=str,   default='pitch',                                                help='conditioning task')
@@ -66,16 +67,17 @@ if not args.conditioning is None:
     
 
 #%% Data import
+import dill
 
-import pickle 
 
-with open('data/trainSet.data','rb') as f:
-    audioSet = pickle.load(f)
+with open(args.data,'rb') as f:
+    audioSet = dill.load(f)
 #testSet = np.load('data/testSet.npy')
 
 if not args.filter is None:
     wrong_ids = np.where(audioSet.metadata['octave'] > args.filter)
     audioSet.files = np.delete(np.array(audioSet.files), wrong_ids).tolist()
+    audioSet.data =  np.delete(np.array(audioSet.data), wrong_ids).tolist()
     for k, v in audioSet.metadata.items():
         audioSet.metadata[k] = np.delete(v, wrong_ids)
 
